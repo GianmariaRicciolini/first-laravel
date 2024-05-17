@@ -1,24 +1,22 @@
-<h1>Books list</h1>
+@extends('templates.base')
 
-{{-- metodo 1 --}}
+@section('title', 'Libreria')
 
-@if ($titles)
-    <ul>
-        @foreach ($titles as $title)
-            <li @style([
-                'background-color: red' => $loop->first,
-                'background-color: green' => $loop->last,
-            ])>{{$titles}}</li>
+@section('content')
+    <div class="row">
+        @foreach($books as $book)
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="{{ $book->image }}" class="card-img-top" alt="{{ $book->title }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ $book->title }}</h5>
+                        <p class="card-text">Autore: {{ $book->author }}</p>
+                        <p class="card-text">Genere: {{ $book->genre }}</p>
+                        <p class="card-text">Anno pubblicazione: {{ $book->published_at }}</p>
+                        <p class="card-text">{{ $book->description }}</p>
+                    </div>
+                </div>
+            </div>
         @endforeach
-    </ul>
-@else
-    <h2>Non ci sono libri</h2>
-@endif
-
-{{-- metodo 2 --}}
-
-@forelse ($titles as $title)
-  <div>{{$titles}}</div>
-@empty
-  <h2>Non ci sono libri</h2>
-@endforelse
+    </div>
+@endsection
