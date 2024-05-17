@@ -5,7 +5,10 @@
 @if ($titles)
     <ul>
         @foreach ($titles as $title)
-            <li>{{$titles}}</li>
+            <li @style([
+                'background-color: red' => $loop->first,
+                'background-color: green' => $loop->last,
+            ])>{{$titles}}</li>
         @endforeach
     </ul>
 @else
