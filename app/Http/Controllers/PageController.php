@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Task;
+use App\Models\Page;
 use Illuminate\Http\Request;
 
-class TaskController extends Controller
+class PageController extends Controller
 {
     // Visualizzazione dell'elenco delle attività
     public function index()
@@ -13,8 +13,8 @@ class TaskController extends Controller
         return view('index');
     }
 
-    public function contact()
+    public function about()
     {
-        return view('contact');
+        return view('about');
     }
 }
